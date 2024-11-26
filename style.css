@@ -19,8 +19,10 @@
 #container{
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
     justify-content: center;
+    width: 600px;
+    height: 600px;
+    margin: auto;
 }
 
 .row {
