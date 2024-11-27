@@ -27,9 +27,9 @@ function createGrid (nSquares = 16){
             let size = 600 / nSquares;
             columnDivs.setAttribute(`style`, `height: ${size}px; width: ${size}px;`);
             rowDivs.appendChild(columnDivs).classList.add("column");
-    
         }   
     }
+    blackColor();
 }
 
 createGrid();
@@ -45,9 +45,35 @@ btn1.addEventListener("click", () => {
     
 });
 
-const blocks = document.querySelectorAll(".column");
-blocks.forEach((block) => {
-    block.addEventListener("mouseover", (e) => {
-        e.target.style.backgroundColor = "black";
+btn3.addEventListener("click", () =>{ 
+    createGrid();
+});
+
+
+
+
+
+
+btn2.addEventListener("click", () => {
+    const blocks = document.querySelectorAll(".column");
+    blocks.forEach((block) => {
+        block.addEventListener("mouseover", function (e) {
+            e.target.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16); 
+            
+        });
+        
     });
 });
+
+function blackColor() {
+    const blocks = document.querySelectorAll(".column");
+    blocks.forEach((block) => {
+        block.addEventListener("mouseover", function (e) {
+            e.target.style.backgroundColor = "black"; 
+            if(e.target.style.opacity <= 0.9){
+                e.target.style.opacity = +e.target.style.opacity + 0.1;
+            }   
+        });
+        
+    });
+}
